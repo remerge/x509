@@ -1,7 +1,6 @@
 # Important Notice
 
-This is a fork of the `crypto/x509` Go package. The original source can be found on
+This is extracted from https://github.com/google/certificate-transparency-go X509 package - which is itself a fork of  the `crypto/x509` Go package. The original source can be found on
 [GitHub](https://github.com/golang/go).
 
-Be careful about making local modifications to this code as it will
-make maintenance harder in future.
+The main reason of this for is to enabled make the SECP192R1 (prime192v1) curve available and usable without raising an error.
