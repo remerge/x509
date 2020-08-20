@@ -109,9 +109,9 @@ func ParsePKIXPublicKey(derBytes []byte) (pub interface{}, err error) {
 	}
 	// MK: this can only happen for SECP192R1 - which we want to support. Ignore this for now
 	// Treat non-fatal errors as fatal for this entrypoint.
-	if len(nfe.Errors) > 0 {
-		return nil, nfe.Errors[0]
-	}
+	// if len(nfe.Errors) > 0 {
+	// 	return nil, nfe.Errors[0]
+	// }
 	return pub, nil
 }
 
