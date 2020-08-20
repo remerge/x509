@@ -107,6 +107,7 @@ func ParsePKIXPublicKey(derBytes []byte) (pub interface{}, err error) {
 	if err != nil {
 		return pub, err
 	}
+	// MK: this can only happen for SECP192R1 - which we want to support. Ignore this for now
 	// Treat non-fatal errors as fatal for this entrypoint.
 	if len(nfe.Errors) > 0 {
 		return nil, nfe.Errors[0]
@@ -3233,7 +3234,7 @@ func ParseCertificateRequest(asn1Data []byte) (*CertificateRequest, error) {
 
 func parseCertificateRequest(in *certificateRequest) (*CertificateRequest, error) {
 	out := &CertificateRequest{
-		Raw: in.Raw,
+		Raw:                      in.Raw,
 		RawTBSCertificateRequest: in.TBSCSR.Raw,
 		RawSubjectPublicKeyInfo:  in.TBSCSR.PublicKey.Raw,
 		RawSubject:               in.TBSCSR.Subject.FullBytes,
